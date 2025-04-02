@@ -16,7 +16,7 @@ pygls 2.0.0a2 or higher (tested 2.0.0a1, failed)
 ```sh
 python3 -m pip install "pygls==2.0.0a2"
 ```
-and norminette of course ;P
+and [norminette](https://github.com/42school/norminette) of course ;P
 
 ## installation
 I personally use neovim, so take the other installation instruction with a grain
