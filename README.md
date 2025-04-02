@@ -19,9 +19,14 @@ I personally use neovim, so take the other installation instruction with a grain
 of salt. if you've gotten it to work on your editor, feel free to create a pull
 request!
 
-Neovim
+Neovim - init.lua
 ```lua
-insert example config here
+vim.lsp.config['norm_ls'] = {
+	cmd = { "python3", "/path/to/norm_ls.py" },
+	filetypes = { "c" },
+	single_file_support = true,
+}
+vim.lsp.enable('norm_ls')
 ```
 
 Vim
