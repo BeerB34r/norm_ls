@@ -11,7 +11,8 @@ configured in your editor of choice
 on save, change and open returns the output of norminette in the form of
 diagnostic information to your editor
 ## requirements
-python, pygls, ill figure the versions in a moment
+python 3.8 or higher (tested on 3.10.12 && 3.9.21)
+pygls 2.0.0a2 or higher
 and norminette of course ;P
 
 ## installation
@@ -43,11 +44,12 @@ Vim
 ```vimscript
 insert example config here (can vim even support lsp????)
 ```
-
+> i need to google some more for this, sorry
 
 VSCode
 ```ts
 insert example config here
 ```
-
+> an extension is in the works, for now you will have to figure it out yourself,
+> sorry!
 
