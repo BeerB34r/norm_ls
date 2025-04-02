@@ -42,17 +42,7 @@ require("lspconfig.configs").norm_ls = {
 require("lspconfig").norm_ls.setup {}
 ```
 
-
-Vim
-```vimscript
-insert example config here (can vim even support lsp????)
-```
-> i need to google some more for this, sorry
-
-VSCode
-```ts
-insert example config here
-```
-> an extension is in the works, for now you will have to figure it out yourself,
-> sorry!
-
+a VSCode plugin is currently in the works:tm:, for now i recommend using an
+extension that allows you to use any language server ([this one for example](https://github.com/whtsht/vscode-lspconfig)) and configure that
+slightly. for reference, the command to start the server is `python3 /path/to/norm_ls.py`
+and it will be useless on non-C files
