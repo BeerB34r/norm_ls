@@ -1,0 +1,40 @@
+{
+  "name": "norm-ls",
+  "description": "Norminette in a language server",
+  "author": "Mats de Beer | BeerB34r",
+  "license": "GPL-3.0-only",
+  "version": "1.0.2",
+  "publisher": "MatsdeBeer",
+  "repository": "https://github.com/BeerB34r/vscode-norm_ls",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "activationEvents": [
+    "onLanguage:c"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "c",
+        "aliases": [
+          "c",
+          "C"
+        ],
+        "extensions": [
+          ".c",
+          ".h"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm install --production",
+    "package": "vsce package --no-dependencies",
+    "install": "pip install 'pygls>=2.0.0a2'"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^3.3.2",
+    "vscode-languageclient": "^8.1.0"
+  }
+}

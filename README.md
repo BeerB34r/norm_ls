@@ -42,7 +42,5 @@ require("lspconfig.configs").norm_ls = {
 require("lspconfig").norm_ls.setup {}
 ```
 
-a VSCode plugin is currently in the works:tm:, for now i recommend using an
-extension that allows you to use any language server ([this one for example](https://github.com/whtsht/vscode-lspconfig)) and configure that
-slightly. for reference, the command to start the server is `python3 /path/to/norm_ls.py`
-and it will be useless on non-C files
+For you VSCode users, there is a plugin with the identifier
+`matsdebeer.norm-ls`, heres a [link!](https://marketplace.visualstudio.com/items?itemName=MatsdeBeer.norm-ls)

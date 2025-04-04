@@ -49,7 +49,7 @@ class PublishDiagnosticServer(LanguageServer):
                             source = "norm_ls",
                             range = types.Range(
                                 start = types.Position(line = int(hint.line) - 1, character = int(hint.char) - 1),
-                                end = types.Position(line = int(hint.line) - 1, character = int(hint.char))
+                                end = types.Position(line = int(hint.line) - 1, character = int(hint.char) - 1)
                                 )))
         self.diagnostics[document.uri] = (document.version, diagnostics)
 
