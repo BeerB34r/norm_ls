@@ -29,7 +29,7 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm install --production && npm run package",
+    "vscode:prepublish": "npm install --production",
     "package": "vsce package",
     "install": "pip install 'pygls>=2.0.0a2'"
   },
