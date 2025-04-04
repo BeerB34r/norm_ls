@@ -3,7 +3,7 @@
   "description": "Norminette in a language server",
   "author": "Mats de Beer | BeerB34r",
   "license": "GPL-3.0-only",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "publisher": "MatsdeBeer",
   "repository": "https://github.com/BeerB34r/norm_ls",
   "engines": {
@@ -29,8 +29,8 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm install --production",
-    "package": "vsce package --no-dependencies",
+    "vscode:prepublish": "npm install --production && npm run package",
+    "package": "vsce package",
     "install": "pip install 'pygls>=2.0.0a2'"
   },
   "dependencies": {
