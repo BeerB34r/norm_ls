@@ -3,9 +3,9 @@
   "description": "Norminette in a language server",
   "author": "Mats de Beer | BeerB34r",
   "license": "GPL-3.0-only",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "MatsdeBeer",
-  "repository": "https://github.com/BeerB34r/vscode-norm_ls",
+  "repository": "https://github.com/BeerB34r/norm_ls",
   "engines": {
     "vscode": "^1.75.0"
   },
