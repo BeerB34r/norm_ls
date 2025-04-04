@@ -14,7 +14,7 @@ diagnostic information to your editor
 python 3.8 or higher (tested on 3.10.12 && 3.9.21)
 pygls 2.0.0a2 or higher (tested 2.0.0a1, failed)
 ```sh
-python3 -m pip install "pygls==2.0.0a2"
+python3 -m pip install "pygls>=2.0.0a2"
 ```
 and [norminette](https://github.com/42school/norminette) of course ;P
 
