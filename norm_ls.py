@@ -15,7 +15,7 @@ class Hint:
         self.char = char
 
 def get_hints(file: str):
-    process = Popen(["norminette", "-d", file], stdout=PIPE)
+    process = Popen(["norminette", "-d","-R", "CheckForbiddenSourceHeader", file], stdout=PIPE)
     (output, err) = process.communicate()
     exit_code = process.wait()
     lines = output.splitlines()

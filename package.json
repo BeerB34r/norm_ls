@@ -3,7 +3,7 @@
   "description": "Norminette in a language server",
   "author": "Mats de Beer | BeerB34r",
   "license": "GPL-3.0-only",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "MatsdeBeer",
   "repository": "https://github.com/BeerB34r/norm_ls",
   "engines": {
