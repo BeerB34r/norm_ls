@@ -26,7 +26,7 @@ request!
 Neovim - init.lua
 ```lua
 vim.lsp.config['norm_ls'] = {
-	cmd = { "python3", "/path/to/norm_ls.py" },
+	cmd = { "/path/to/norm_ls.py" },
 	filetypes = { "c" },
 	single_file_support = true,
 }
@@ -35,7 +35,7 @@ vim.lsp.enable('norm_ls')
 if you are using nvim-lspconfig, put this into the config function instead
 ```lua
 require("lspconfig.configs").norm_ls = {
-	cmd = { "python3", "/path/to/norm_ls.py" },
+	cmd = { "/path/to/norm_ls.py" },
 	filetypes = { "c" },
 	single_file_support = true,
 }

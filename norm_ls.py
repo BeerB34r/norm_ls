@@ -1,3 +1,4 @@
+#!/bin/env python3
 import re
 import logging
 from pygls.lsp.server import LanguageServer

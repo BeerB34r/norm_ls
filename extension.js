@@ -6,8 +6,7 @@ let client;
 
 function activate(context) {
     const serverOptions = {
-        command: 'python3',
-        args: [path.join(context.extensionPath, 'norm_ls.py')]
+        command: 'norm_ls.py',
     };
 
     const clientOptions = {

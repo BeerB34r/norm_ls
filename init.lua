@@ -1,5 +1,5 @@
 vim.lsp.config['norm_ls'] = {
-	cmd = { "python3", "/path/to/norm_ls.py" },
+	cmd = { "/path/to/norm_ls.py" },
 	filetypes = { "c" },
 	single_file_support = true,
 }
