@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import re
+import json
 import logging
 from pygls.lsp.server import LanguageServer
 from pygls.cli import start_server
@@ -16,19 +16,23 @@ class Hint:
         self.char = char
 
 def get_hints(file: str):
-    process = Popen(["norminette", "-d","-R", "CheckForbiddenSourceHeader", file], stdout=PIPE)
+    process = Popen(["norminette", "-d","-R", "CheckForbiddenSourceHeader", "-f", "json", file], stdout=PIPE)
     (output, err) = process.communicate()
     exit_code = process.wait()
-    lines = output.splitlines()
-    if not lines:
+    line = output.splitlines()[1]
+    if not line:
         return None
+    content = json.loads(line)["files"][0]
+    status = content["status"]
+    errors = content["errors"]
     hints = []
-    for i in lines:
-        if str(i).find("Error:") > 0:
-            hints.append(Hint(re.search("[A-Z_]+$", re.search("Error:\s[A-Z_]+", str(i)).group(0)).group(0),
-                              str(i).split(':').pop()[2:-1],
-                              re.search("[0-9]+", re.search("line:\s*[0-9]+", str(i)).group(0)).group(0),
-                              re.search("[0-9]+", re.search("col:\s*[0-9]+", str(i)).group(0)).group(0)))
+    if status == "Error":
+        for h in errors:
+            hints.append(Hint(h["name"],
+                              h["text"],
+                              h["highlights"][0]["lineno"],
+                              h["highlights"][0]["column"])
+                         )
     return hints
 
 class PublishDiagnosticServer(LanguageServer):
@@ -54,7 +58,7 @@ class PublishDiagnosticServer(LanguageServer):
                                 )))
         self.diagnostics[document.uri] = (document.version, diagnostics)
 
-server = PublishDiagnosticServer("norm_ls", "v0.1.2", text_document_sync_kind = types.TextDocumentSyncKind(1),)
+server = PublishDiagnosticServer("norm_ls", "v0.1.3", text_document_sync_kind = types.TextDocumentSyncKind(1),)
 
 @server.feature(types.TEXT_DOCUMENT_DID_OPEN)
 def did_open(ls: PublishDiagnosticServer, params: types.DidOpenTextDocumentParams):
@@ -101,3 +105,4 @@ def did_save(ls: PublishDiagnosticServer, params: types.DidSaveTextDocumentParam
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     start_server(server)
+
