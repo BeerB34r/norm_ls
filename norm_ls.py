@@ -48,6 +48,15 @@ def get_hints(file: str) -> list[Hint] | None:
     except Exception as e:
         print(f"Failed to gather hints: {e}", file=stderr)
         process.kill()
+        return [
+            Hint(
+                "FATAL",
+                "norminette could not exit properly, "
+                "resulting in no errors being reported.",
+                "1",
+                "1",
+            )
+        ]
     line = output.splitlines()[1]
     if not line:
         return None
@@ -106,7 +115,7 @@ class PublishDiagnosticServer(LanguageServer):
 
 server = PublishDiagnosticServer(
     "norm_ls",
-    "v0.1.3",
+    "v0.2.0",
     text_document_sync_kind=types.TextDocumentSyncKind(1),
 )
 
